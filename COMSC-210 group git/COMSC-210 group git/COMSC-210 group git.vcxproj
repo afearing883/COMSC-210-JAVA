@@ -142,7 +142,18 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DeQueueA.h" />
+    <ClInclude Include="DeQueueLL.h" />
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="mergeSort.h" />
+    <ClInclude Include="MyVector.h" />
+    <ClInclude Include="queens.h" />
+    <ClInclude Include="QueueA.h" />
+    <ClInclude Include="QueueLL.h" />
+    <ClInclude Include="StackA.h" />
+    <ClInclude Include="StackLL.h" />
+    <ClInclude Include="towersOfHanoi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
