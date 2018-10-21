@@ -6,38 +6,53 @@
 #include <string>
 #include <iostream>
 
-
-const char Q = 'Q', SQUARE = ' ';
-
-
-bool solveQueens(std::vector<size_t>& board, size_t currentRank)
+bool solveQueens(std::vector<std::size_t>& board,const std::size_t currentRank)
 {
-	bool validPlace = false;
-	for (size_t file = 0;file < board.size() && !validPlace; ++file)
+	bool validPlace = true;
+	bool validFile = false;
+	bool validLeftDiag = false;
+	bool validRightDiag = false;
+	if (currentRank == board.size())
 	{
-		for (size_t i = 0;!validPlace && i < currentRank; ++i)
+		return true;
+	}
+	for (std::size_t file = 0; file < board.size(); ++file, validPlace = true)
+	{
+		std::size_t i = 0;
+		//for debugging
+		validFile = (file != board.at(i));
+		validRightDiag = (file + (currentRank - i)) != board.at(i);
+		validLeftDiag = (file - (currentRank - i)) != board.at(i);
+		for (i = 0 (i < currentRank) && (validPlace = (file != board.at(i)) && (file + (currentRank - i)) != board.at(i) && (file - (currentRank - i)) != board.at(i)) ; ++i)
 		{
-			validPlace = (file != board.at(i)) && (file + (currentRank - i)) != board.at(i) && (file - (currentRank - i)) != board.at(i);
 		}
 		if (validPlace)
 		{
 			board.at(currentRank) = file;
-			solveQueens(board, currentRank + 1);
-			
-		}
-
+			if (solveQueens(board, currentRank + 1))
+			{
+				return true;
+			}
+		}		
 	}
-
-
-
-
+	return false;
 }
 
-void queens(int n = 8)
+std::vector<std::size_t> queens(std::size_t n = 8)
 {
-	size_t currentRank = 0;
-	std::vector<size_t> board(n, std::string::npos);
+	std::size_t currentRank = 0;
+	std::vector<std::size_t> board(n, std::string::npos);
 	solveQueens(board, currentRank);
+	std::vector<std::string> chessBoard;
+
+	for (std::size_t i = 0; i < board.size(); ++i)
+	{
+		std::string rank(n, ' ');
+		rank.at(board.at(i)) = 'Q';
+		chessBoard.push_back(rank);
+		std::cout << rank << std::endl;
+	}
+	return board;
 }
 
 #endif // !QUEENS_H
