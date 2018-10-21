@@ -1,44 +1,25 @@
 #ifndef MERGE_SORT_H
 #define MERGE_SORT_H
+#include <algorithm>
 
 template<typename Type>
-void merge(Type items[], const int size, int low, const int middle1, int middle2, const int high)
+void merge(Type items[], int low, const int middle1, int middle2, const int high)
 {
+	int size = high - low + 1;
 	int initialLow = low;
-	int initialMiddle2 = middle2;
-	int workingIndex = 0;
-	//Type workingArray[size];
-	Type* workingArray = new Type(size);
-	//Type workingArray[high - low+1];
-	for (workingIndex = 0; low <= middle1 && middle2 <= high; ++workingIndex)
+	Type* workingArray = new Type[size];
+
+	for (int workingIndex = 0; workingIndex < size; ++workingIndex)
 	{
-		if (items[low] < items[middle2])
-		{
-			workingArray[workingIndex] = items[low++];
-		}
-		else
-		{
-			workingArray[workingIndex] = items[middle2];
-			++middle2;
-		}
+		workingArray[workingIndex] = (middle2 > high) || ((low <= middle1) && (items[low] < items[middle2])) ? items[low++] : items[middle2++];
 	}
-	for (; middle2 <= high; ++workingIndex, ++middle2)
-	{
-		workingArray[workingIndex] = items[middle2];
-	}
-	for (; low <= middle1; ++workingIndex, ++low)
-	{
-		workingArray[workingIndex] = items[low];
-	}
-	//copy((items + low * sizeof(Type)), workingArray, (size) * sizeof(Type));
-	for (int i = 0; i < size; ++i)
-	{
-		items[initialLow + i] = workingArray[i];
-	}
+	//for (int i = 0; i < size; ++i)
+	//{
+	//	items[initialLow + i] = workingArray[i];
+	//}
+	//memcpy(items + initialLow, workingArray, size*sizeof(Type));
+	std::copy(workingArray, workingArray + size, items + initialLow);
 	delete[] workingArray;
-
-
-
 }
 
 template<typename Type>
@@ -51,8 +32,8 @@ void mergeSort(Type items[], int low, int high)
 
 		mergeSort(items, low, middle1);
 		mergeSort(items, middle2, high);
-		int size = high - low + 1;
-		merge(items, size, low, middle1, middle2, high);
+
+		merge(items, low, middle1, middle2, high);
 	}
 }
 #endif // !MERGE_SORT_H

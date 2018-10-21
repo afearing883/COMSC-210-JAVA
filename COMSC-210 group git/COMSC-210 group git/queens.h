@@ -6,7 +6,7 @@
 #include <string>
 #include <iostream>
 
-bool solveQueens(std::vector<std::size_t>& board,const std::size_t currentRank)
+bool solveQueens(std::vector<std::size_t>& board, const std::size_t currentRank)
 {
 	bool validPlace = true;
 	bool validFile = false;
@@ -23,7 +23,7 @@ bool solveQueens(std::vector<std::size_t>& board,const std::size_t currentRank)
 		validFile = (file != board.at(i));
 		validRightDiag = (file + (currentRank - i)) != board.at(i);
 		validLeftDiag = (file - (currentRank - i)) != board.at(i);
-		for (i = 0 (i < currentRank) && (validPlace = (file != board.at(i)) && (file + (currentRank - i)) != board.at(i) && (file - (currentRank - i)) != board.at(i)) ; ++i)
+		for (i = 0; (i < currentRank) && (validPlace = (file != board.at(i)) && (file + (currentRank - i)) != board.at(i) && (file - (currentRank - i)) != board.at(i)); ++i)
 		{
 		}
 		if (validPlace)
@@ -33,7 +33,7 @@ bool solveQueens(std::vector<std::size_t>& board,const std::size_t currentRank)
 			{
 				return true;
 			}
-		}		
+		}
 	}
 	return false;
 }

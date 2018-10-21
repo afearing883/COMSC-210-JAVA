@@ -54,18 +54,18 @@ using namespace std;
 
 int main()
 {
-	vector<size_t> v = queens(8);
-	for (size_t i : v)
-	{
-		cout << i << endl;
-	}
-	// const int LIST_SIZE = 6;
-	// int list[LIST_SIZE] = { 30,20,9,8,9,3 };
-	// mergeSort<int>(list, 0, LIST_SIZE - 1);
-	// for (int i : list)
+	// vector<size_t> v = queens(8);
+	// for (size_t i : v)
 	// {
 	// 	cout << i << endl;
 	// }
+	const int LIST_SIZE = 7;
+	int list[LIST_SIZE] = { 30,20,9,12,8,9,3 };
+	mergeSort<int>(list, 0, LIST_SIZE - 1);
+	for (int i : list)
+	{
+		cout << i << endl;
+	}
 
 	// cout << "List" << endl;
 	// List<int> l;
