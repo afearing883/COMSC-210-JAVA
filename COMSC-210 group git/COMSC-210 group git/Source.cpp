@@ -45,6 +45,7 @@ Status:  complete
 #include "DeQueueLL.h"
 #include "DeQueueA.h"
 #include "mergeSort.h"
+#include "queens.h"
 #include <vector>
 using namespace std;
 
@@ -53,8 +54,13 @@ using namespace std;
 
 int main()
 {
-	const int LIST_SIZE = 6;
-	int list[LIST_SIZE] = { 30,20,9,8,9,3 };
+	// vector<size_t> v = queens(8);
+	// for (size_t i : v)
+	// {
+	// 	cout << i << endl;
+	// }
+	const int LIST_SIZE = 7;
+	int list[LIST_SIZE] = { 30,20,9,12,8,9,3 };
 	mergeSort<int>(list, 0, LIST_SIZE - 1);
 	for (int i : list)
 	{
