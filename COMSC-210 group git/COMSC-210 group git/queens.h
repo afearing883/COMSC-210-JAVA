@@ -1,4 +1,3 @@
-// not working yet 2018.10.20
 #ifndef QUEENS_H
 #define QUEENS_H
 
