@@ -37,6 +37,7 @@ Status:  complete
 
 
 #include <iostream>
+#include <vector>
 #include "List.h"
 #include "StackLL.h"
 #include "StackA.h"
@@ -46,7 +47,7 @@ Status:  complete
 #include "DeQueueA.h"
 #include "mergeSort.h"
 #include "queens.h"
-#include <vector>
+#include "quickSort.h"
 using namespace std;
 
 
@@ -54,18 +55,16 @@ using namespace std;
 
 int main()
 {
-	// vector<size_t> v = queens(8);
-	// for (size_t i : v)
-	// {
-	// 	cout << i << endl;
-	// }
+	vector<size_t> queensSolution = queens(4);
+	printPositions(queensSolution);
+	printBoard(queensSolution);
 	const int LIST_SIZE = 7;
 	int list[LIST_SIZE] = { 30,20,9,12,8,9,3 };
-	mergeSort<int>(list, 0, LIST_SIZE - 1);
-	for (int i : list)
-	{
-		cout << i << endl;
-	}
+	//mergeSort<int>(list, 0, LIST_SIZE - 1);
+	printArr(list, LIST_SIZE);
+
+	qSort(list, LIST_SIZE);
+	printArr(list, LIST_SIZE);
 
 	// cout << "List" << endl;
 	// List<int> l;
