@@ -1,20 +1,8 @@
-// doesn't work yet. gets stuck in infinite loop
 #ifndef QUICK_SORT_H
 #define QUICK_SORT_H
 
-#include <iostream>
 
-template<typename Type>
-void printArr(Type *arr, const int size)
-{
-	for (int i = 0; i < size; ++i)
-	{
-		std::cout << arr[i] << " ";
-	}
 
-	std::cout << std::endl;
-	return;
-}
 template<typename Type>
 inline void swapValues(Type arr[], int index1, int index2)
 {
@@ -27,7 +15,9 @@ inline void swapValues(Type arr[], int index1, int index2)
 template<typename Type>
 int partition(Type *arr, int low, int high)
 {
-	int midpoint = (high - low) / 2;
+	Type pivot;
+	int end = high;
+	int midpoint = (high + low) / 2;
 
 	if (arr[high] < arr[low])
 	{
@@ -41,16 +31,21 @@ int partition(Type *arr, int low, int high)
 	{
 		swapValues(arr, low, midpoint);
 	}
-	++low;//because we know that the values at arr[low] and arr[high] are in the right place. We just sorted them with if statements.
-	--high;
+	swapValues(arr, midpoint, high);
 
-	for (;low < high; low += arr[low] < arr[midpoint], high -= arr[high] > arr[midpoint])
+	pivot = arr[high--];
+	int lastHigh = high;
+
+	for (; low < high; low += arr[low] < pivot, high -= arr[high] > pivot)
 	{
-		if (arr[low] > arr[midpoint] && arr[high] < arr[midpoint])
+		if (arr[low] > pivot && arr[high] < pivot)
 		{
 			swapValues(arr, low, high);
 		}
+		(arr[high] > pivot && (lastHigh = high));
 	}
+	midpoint = arr[high] > pivot ? high : lastHigh;
+	swapValues(arr, midpoint, end);
 	return midpoint;
 }
 

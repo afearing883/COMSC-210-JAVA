@@ -35,92 +35,38 @@ Status:  complete
 ****************************************************************/
 
 
-
 #include <iostream>
 #include <vector>
-#include "List.h"
-#include "StackLL.h"
-#include "StackA.h"
-#include "QueueLL.h"
-#include "QueueA.h"
-#include "DeQueueLL.h"
-#include "DeQueueA.h"
-#include "mergeSort.h"
-#include "queens.h"
-#include "quickSort.h"
+#include "quicksort.h"
 using namespace std;
 
+template<typename Type>
+void printArr(Type *arr, const int size, ostream& os = cout)
+{
+	for (int i = 0; i < size; ++i)
+	{
+		os << arr[i] << " ";
+	}
 
-
+	os << endl;
+	return;
+}
+template<typename Type>
+void printVect(const vector<Type>& v, ostream& os = cout)
+{
+	for (const Type& i : v)
+	{
+		os << i << " ";
+	}
+	os << endl;
+}
 
 int main()
 {
-	vector<size_t> queensSolution = queens(4);
-	printPositions(queensSolution);
-	printBoard(queensSolution);
-	const int LIST_SIZE = 7;
-	int list[LIST_SIZE] = { 30,20,9,12,8,9,3 };
-	//mergeSort<int>(list, 0, LIST_SIZE - 1);
-	printArr(list, LIST_SIZE);
-
-	qSort(list, LIST_SIZE);
-	printArr(list, LIST_SIZE);
-
-	// cout << "List" << endl;
-	// List<int> l;
-	// l.pushBack(6);
-	// l.pushBack(48);
-	// l.pushBack(22);
-	// l.pushBack(4);
-	// l.iSort();
-	// l.displayList();
-
-	// cout << "Dequeue List" << endl;
-	// DeQueueLL<int> dl;
-	// dl.pushFront(1);
-	// dl.pushFront(2);
-	// dl.pushFront(3);
-	// dl.pushFront(4);
-	// dl.pushBack(7);
-	// cout << dl.popFront() << endl;
-	// 
-	// cout << "Stack List" << endl;
-	// StackLL<double> sll;
-	// sll.push(3.2);
-	// sll.push(2.1);
-	// sll.push(4.0);
-	// cout << sll.top() << endl;
-	// 
-	// cout << "Queue List" << endl;
-	// QueueLL<double> qll;
-	// qll.push(3.2);
-	// qll.push(2.1);
-	// qll.push(4.0);
-	// cout << qll.pop() << endl;
-	// 
-	// cout << "-------------------------" << endl;
-	// 
-	// cout << "Dequeue Array" << endl;
-	// DeQueueA<double> da;
-	// da.pushFront(1);
-	// da.pushFront(2);
-	// da.pushFront(3);
-	// da.pushFront(4);
-	// da.pushBack(7);
-	// cout << da.popFront() << endl;
-	// 
-	// cout << "Stack Array" << endl;
-	// StackA<double> sa;
-	// sa.push(3.2);
-	// sa.push(2.1);
-	// sa.push(4.0);
-	// cout << sa.pop() << endl;
-	// 
-	// cout << "Queue Array" << endl;
-	// QueueA<double> qa;
-	// qa.push(3.2);
-	// qa.push(2.1);
-	// qa.push(4.0);
-	// cout << qa.pop() << endl;
+	cout << "quicksort" << endl;
+	const int ARRAY_SIZE = 13;
+	int arr[ARRAY_SIZE] = { 158, 65, 123, 621, -951, 657, 42, -9554, 126, -158, 158, 0x256, 1 };
+	qSort(arr, ARRAY_SIZE);
+	printArr(arr, ARRAY_SIZE);
 	return 0;
 }

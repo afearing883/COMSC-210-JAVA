@@ -8,21 +8,13 @@
 bool solveQueens(std::vector<std::size_t>& board, const std::size_t currentRank)
 {
 	bool validPlace = true;
-	bool validFile = false;
-	bool validLeftDiag = false;
-	bool validRightDiag = false;
 	if (currentRank == board.size())
 	{
 		return true;
 	}
 	for (std::size_t file = 0; file < board.size(); ++file, validPlace = true)
 	{
-		std::size_t i = 0;
-		//for debugging
-		validFile = (file != board.at(i));
-		validRightDiag = (file + (currentRank - i)) != board.at(i);
-		validLeftDiag = (file - (currentRank - i)) != board.at(i);
-		for (i = 0; (i < currentRank) && (validPlace = (file != board.at(i)) && (file + (currentRank - i)) != board.at(i) && (file - (currentRank - i)) != board.at(i)); ++i)
+		for (std::size_t i = 0; (i < currentRank) && (validPlace = (file != board.at(i)) && (file + (currentRank - i)) != board.at(i) && (file - (currentRank - i)) != board.at(i)); ++i)
 		{
 		}
 		if (validPlace)

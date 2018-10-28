@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="quickSort.h" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +151,8 @@
     <ClInclude Include="queens.h" />
     <ClInclude Include="QueueA.h" />
     <ClInclude Include="QueueLL.h" />
+    <ClInclude Include="quicksort.h" />
+    <ClInclude Include="radixsort.h" />
     <ClInclude Include="StackA.h" />
     <ClInclude Include="StackLL.h" />
     <ClInclude Include="towersOfHanoi.h" />
