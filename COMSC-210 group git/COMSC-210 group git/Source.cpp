@@ -37,11 +37,7 @@ Status:  complete
 
 #include <iostream>
 #include <vector>
-#include "QueueA.h"
-#include "Scheduler.h"
-#include <fstream>
-#include <string>
-#include <sstream>
+#include "quicksort.h"
 using namespace std;
 
 template<typename Type>
@@ -65,39 +61,12 @@ void printVect(const vector<Type>& v, ostream& os = cout)
 	os << endl;
 }
 
-void scheduler()
-{
-	ifstream inFile;
-	inFile.open("schedule.txt");
-	string s, processName;
-	int priorityLevel = 0;
-	const int PRIORITY_LEVELS = 4;
-	QueueA<string> scheduleArray[PRIORITY_LEVELS];
-	if (inFile)
-	{
-		while (getline(inFile, s))
-		{
-			stringstream(s) >> priorityLevel >> processName;
-			scheduleArray[priorityLevel].push(processName);
-		}
-		for (int i = 0; i < PRIORITY_LEVELS; ++i)
-		{
-			while (!scheduleArray[i].empty())
-			{
-				cout << scheduleArray[i].pop() << endl;
-			}
-		}
-	}
-	else
-	{
-		cout << "file not open" << endl;
-	}
-	inFile.close();
-}
-
-
 int main()
 {
-	scheduler();
+	cout << "quicksort" << endl;
+	const int ARRAY_SIZE = 13;
+	int arr[ARRAY_SIZE] = { 158, 65, 123, 621, -951, 657, 42, -9554, 126, -158, 158, 0x256, 1 };
+	qSort(arr, ARRAY_SIZE);
+	printArr(arr, ARRAY_SIZE);
 	return 0;
 }
