@@ -146,9 +146,10 @@
     <ClInclude Include="DeQueueLL.h" />
     <ClInclude Include="Exception.h" />
     <ClInclude Include="List.h" />
-    <ClInclude Include="mergeSort.h" />
+    <ClInclude Include="mergesort.h" />
     <ClInclude Include="MyVector.h" />
     <ClInclude Include="queens.h" />
+    <ClInclude Include="queensstack.h" />
     <ClInclude Include="QueueA.h" />
     <ClInclude Include="QueueLL.h" />
     <ClInclude Include="quicksort.h" />

@@ -47,9 +47,6 @@
     <ClInclude Include="towersOfHanoi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mergeSort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MyVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -60,6 +57,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="quicksort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="queensstack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mergesort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
